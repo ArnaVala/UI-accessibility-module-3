@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        crossorigin="anonymous" />
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="style.css" />
+  <title>UI-Accessibility</title>
+</head>
+
+<body>
+  <!-- Mark up with semantic HTML - Labelling Page regions e.g. <header> <main> <section> <article> <footer> -->
+  <header>
+    <a href='#'
+       class='logo'>Logo</a>
+    <!--identify menu for direct access for users with <nav> -->
+    <!--label menu to make them easier to find and understand -->
+
+    <nav aria-labelledby="nav-label">
+      <!-- Visually hidden label for accessibility - e.g. screen readers -->
+      <h2 id='nav-label'
+          class='sr-only'>Main Navigation</h2>
+      <ul>
+        <!-- Use <ul>/<ol> for menus -->
+        <li>
+          <a href="#">Link</a>
+        </li>
+        <li>
+          <a href="#">Reservations</a>
+        </li>
+        <li>
+          <a href="#footer">Footer</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section aria-labelledby="heading">
+      <h2 id='heading'>Form</h2>
+      <form>
+        <fieldset>
+          Contact form
+
+        </fieldset>
+
+        <fieldset>
+          Dropdown select
+        </fieldset>
+        <fieldset>
+          Checkbox options
+        </fieldset>
+        <fieldset>
+          Radio buttons
+        </fieldset>
+        <button type='submit'>Send info</button>
+      </form>
+    </section>
+  </main>
+  <footer id='footer'>
+    <p>Arna Vala - UI Design Accessibility</p>
+  </footer>
+
+
+
+
+  <script src="/main.js"></script>
+</body>
+
+</html>
