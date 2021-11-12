@@ -23,60 +23,96 @@
 </head>
 
 <body>
-  <!-- Mark up with semantic HTML - Labelling Page regions e.g. <header> <main> <section> <article> <footer> -->
-  <header>
-    <a href='#'
-       class='logo'>Logo</a>
-    <!--identify menu for direct access for users with <nav> -->
-    <!--label menu to make them easier to find and understand -->
+  <div class='page-wrapper'>
+    <!-- Mark up with semantic HTML - Labelling Page regions e.g. <header> <main> <section> <article> <footer> -->
+    <header id='navigation'>
+      <h1 class='title'>UI Accessibility</h1>
+      <!--identify menu for direct access for users with <nav> -->
+      <!--label menu to make them easier to find and understand -->
+      <nav aria-labelledby="nav-label">
+        <!-- Visually hidden label for accessibility - e.g. screen readers -->
+        <h2 id="nav-label"
+            class='sr-only'>Main Navigation</h2>
+        <ul>
+          <!-- Use <ul>/<ol> for menus -->
+          <li>
+            <a href="#intro"
+               class="nav-link">Intro</a>
+          </li>
+          <li>
+            <a href="#report"
+               class='
+             nav-link'>Report</a>
+          </li>
+          <li>
+            <a href="#form"
+               class="nav-link">Form</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class='content'>
+      <div class="content-wrapper">
+        <!-- INTRO HEADER -->
+        <section aria-labelledby="intro-heading"
+                 id='intro'>
+          <div class='wrapper'>
+            <h2 class='intro-heading'>UI Accessibility</h2>
+            <ul>
+              <li>
+                A HTML page structured to the Accessibility guidelines, Semantic markup and ARIA tags, fx. defined
+                regions,
+                landmarks, aria-name etc.
+              </li>
+              <li>
+                Figma Prototype with a form, accessibility support, focused navigation, contrast and text size
+                requirements.
+              </li>
+              <li>
+                A report on the difference between <a href='#report'
+                   class='text-link'>Inclusive vs Universal Design</a>.
+            </ul>
+          </div>
+        </section>
+        <!-- REPORT SECTION -->
+        <section aria-labelledby="report-heading"
+                 id='report'>
+          <div class='wrapper'>
+            <h2 id='report-heading'>Inclusive vs Universal Design</h2>
+          </div>
+        </section>
 
-    <nav aria-labelledby="nav-label">
-      <!-- Visually hidden label for accessibility - e.g. screen readers -->
-      <h2 id='nav-label'
-          class='sr-only'>Main Navigation</h2>
-      <ul>
-        <!-- Use <ul>/<ol> for menus -->
-        <li>
-          <a href="#">Link</a>
-        </li>
-        <li>
-          <a href="#">Reservations</a>
-        </li>
-        <li>
-          <a href="#footer">Footer</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section aria-labelledby="heading">
-      <h2 id='heading'>Form</h2>
-      <form>
-        <fieldset>
-          Contact form
+        <!-- FORM SECTION -->
+        <section aria-labelledby="form-heading"
+                 id='form'>
+          <div class='wrapper'>
+            <h2 id='form-heading'>An Accessible Form</h2>
+            <form>
+              <fieldset>
+                Contact form
 
-        </fieldset>
+              </fieldset>
 
-        <fieldset>
-          Dropdown select
-        </fieldset>
-        <fieldset>
-          Checkbox options
-        </fieldset>
-        <fieldset>
-          Radio buttons
-        </fieldset>
-        <button type='submit'>Send info</button>
-      </form>
-    </section>
-  </main>
-  <footer id='footer'>
-    <p>Arna Vala - UI Design Accessibility</p>
-  </footer>
-
-
-
-
+              <fieldset>
+                Dropdown select
+              </fieldset>
+              <fieldset>
+                Checkbox options
+              </fieldset>
+              <fieldset>
+                Radio buttons
+              </fieldset>
+              <button type='submit'>Send info</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- FOOTER -->
+    <footer id='footer'>
+      <p>Arna Vala - UI Design Accessibility</p>
+    </footer>
+  </div>
   <script src="/main.js"></script>
 </body>
 
