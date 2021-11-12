@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  font-family: sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  color: #1C2833;
+}
+
+/* Choosing Typography and Fonts for accessibility. 
+// PT Sans & PT Mono are a fine choice for accessibility, they for example:
+// They have a good x-height
+// there are distinctions in the characters between the Letters I (uppercase I as in India) l (lowercase l as in lettuce) 1 (as in the number one) 
+// d/b or p/q combination which are not an exact mirror image of one another.
+// There are prominent descenders and ascenders in the characters 
+*/
+body {
+  font-family: 'PT Sans', sans-serif;
+  min-height: 100vh;
+  font-size: 1rem;
+}
+
+/* HIDING ELEMENTS ON PAGE WHILE KEEPING ACCESSIBILITY FOR SCREEN READER
+// The conventional way is to use CSS (display:none; and visibility:hidden;) or the HTML5 `hidden` attribute.
+These properties hide elements not only on the screen, but also for screen reader users.
+Thus, these elements will not be visible nor vocalized by speech synthesis.
+// If wanting to display elements on the screen but make sure they are not vocalized.
+In this case, you can use an ARIA attribute (aria-hidden). 
+// In some cases, it may be useful to hide elements on the screen,
+but make sure they are still vocalised by screen readers.
+For this, an accessible hiding CSS class can be used. 
+*/
+
+/* HIDDEN CLASS */
+.sr-only {
+  position: absolute;
+  white-space: nowrap; /* added line */
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* REGIONS */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: navy;
+  color: white;
+  padding: 2rem 4rem;
+}
+
+main {
+  display: flex;
+  flex-direction:column;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+section {
+  background-color:#F8F9F9 ;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 16px;
+}
+
+section h2 {
+  padding-bottom: 32px;
+  font-size: 48px;
+  color: darkblue;
+  text-align: left;
+  width: 100%;
+  max-width: 640px;
+}
+
+:focus-visible   {
+outline: 2px solid blue;  
+box-shadow: 0 0 8px rgba(0,0,0, 0.4 ); 
+}
+
+a:focus {
+  outline: none;
+  box-shadow:none;
+}
+
+a:focus-visible {
+  outline: 1px solid white;
+  outline-offset: 8px;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+ul,
+li {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  padding-bottom: 8px;
+}
+
+/* 
+For good accessibility, it is not enough to change color of text.
+Underlined links on hover state gives a visual que to the user-interaction.
+*/
+a {
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  padding-bottom: 8px;
+  position: relative;
+}
+
+a:after {
+  content: '';
+  display: block;
+  height: 2px;
+  bottom: 0;
+  width: 0;
+  background: white;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+
+a:hover:after {
+  width: 100%; 
+}
+
+/* Navigation */
+.logo {
+  color: #fff;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li a {
+  color: #fff;
+  transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+  color: #fff
+}
+
+small {
+  font-size: 14px;
+  padding-top: 4px;
+}
+
