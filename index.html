@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
   <link rel="stylesheet"
-        href="style.css" />
+        href="styles/styles.css" />
   <title>UI-Accessibility</title>
 </head>
 
@@ -89,7 +89,42 @@
             <h2 id='form-heading'>An Accessible Form</h2>
             <form>
               <fieldset>
-                Contact form
+                <legend>Contact info</legend>
+                <div>
+                  <!-- <label> element's FOR attribute linked to the associating <input> element's ID attribute. -->
+                  <label for='name'>Name <span>(required)</span></label>
+                  <input id='name'
+                         type='text'
+                         name='name'
+                         required
+                         aria-required='true'>
+                </div>
+                <div>
+                  <label for='phone'>Phone<span>(required)</span></label>
+                  <input id='phone'
+                         type='tel'
+                         pattern='[0-9]{3}-[0-9]{4}'
+                         name='phone'
+                         aria-describedby='tel-format'
+                         required
+                         aria-required='true'>
+                  <small id='tel-format'>Format: 123-4567</small>
+                </div>
+                <div>
+                  <label for='email'>Email <span>(required)</span></label>
+                  <input id='email'
+                         type='email'
+                         name='email'
+                         required
+                         aria-required='true'>
+                </div>
+                <div>
+                  <label for='message'>Message <span>(optional)</span></label>
+                  <textarea name="message"
+                            id="message"
+                            rows="5"
+                            aria-required="false"></textarea>
+                </div>
 
               </fieldset>
 
@@ -110,7 +145,7 @@
     </main>
     <!-- FOOTER -->
     <footer id='footer'>
-      <p>Arna Vala - UI Design Accessibility</p>
+      <p class='footer-text'>Arna Vala - UI Design Accessibility</p>
     </footer>
   </div>
   <script src="/main.js"></script>

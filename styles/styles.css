@@ -1,3 +1,14 @@
+:root {
+  --black: #222;
+  --white: linen;
+  --darkgrey: #555;
+  --bg-grey: #dcdcdc;
+  --primary: slateblue;
+  --bg-primary: powderblue;
+  --focus: royalblue;
+  --bg-hover: lightblue;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,28 +23,22 @@ html,
 body {
   margin: 0;
   padding: 0;
-  color: #1C2833;
+  color: var(--white);
 }
 
-
-
 /* ------ HIDING ELEMENTS ON PAGE WHILE KEEPING ACCESSIBILITY FOR SCREEN READER ----- */
-
 /* The conventional way is to use CSS (display:none; and visibility:hidden;) or the HTML5 `hidden` attribute.
 These properties hide elements not only on the screen, but also for screen reader users.
 Thus, these elements will not be visible nor vocalized by speech synthesis.*/
-
 /* If wanting to display elements on the screen but make sure they are not vocalized.
 In this case, you can use an ARIA attribute (aria-hidden). */
-
 /* In some cases, it may be useful to hide elements on the screen,
 but make sure they are still vocalised by screen readers.
 For this, an accessible hiding CSS class can be used. */
-
-// Hidden Class
 .sr-only {
   position: absolute;
-  white-space: nowrap; /* added line */
+  white-space: nowrap;
+  /* added line */
   overflow: hidden;
   width: 1px;
   height: 1px;
@@ -42,7 +47,6 @@ For this, an accessible hiding CSS class can be used. */
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
 
 /* ---------- TYPOGRAPHY ---------- */
 /* 
@@ -53,13 +57,13 @@ Choosing Typography and Fonts for accessibility.
 - d/b or p/q combination which are not an exact mirror image of one another.
 - There are prominent descenders and ascenders in the characters 
 */
-
 body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
   width: 100%;
   height: 100%;
   font-size: 1rem;
   margin: 0;
+  color: #332781;
 }
 
 /* 
@@ -69,14 +73,26 @@ including spaces.
 - Paragraphs should optimally have no more than approx 5 lines, or 2-3 sentences.
 - Font-size of text should be at least 16px, optimally 18px. 20px can even work in certain cases.
 */
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
+  color: var(--black);
+}
+
+h1.title {
+  color: var(--white);
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
 }
 
 h2 {
-  font-size: 56px;
+  font-size: 4rem;
   line-height: 64px;
+  color: #332781;
 }
 
 h3 {
@@ -88,20 +104,30 @@ h4 {
   font-size: 32px;
 }
 
-p, li {
+p,
+li {
   font-weight: normal;
-  line-height:
+  line-height: 1.6rem;
   max-width: 60ch;
   font-size: 18px;
+  color: var(--darkgrey);
 }
 
 a {
-  font-size: 16px;
   text-decoration: none;
 }
 
-ul, ol, li {
+ul,
+ol,
+li {
   list-style: none;
+}
+
+:focus,
+:focus-visible {
+  outline: 2px solid slateblue;
+  outline-offset: 8px;
+  border-radius: 2px;
 }
 
 /* LINKS, BUTTONS etc. - elements requiring interaction
@@ -110,103 +136,94 @@ ul, ol, li {
 - Underlined links on hover state gives a visual que to the user-interaction.
 - Focus state is important for tab navigation, and should always be available for navigation
 */
-
-
-
-nav ul li a:focus-visible {
-  outline: 1px solid white;
-  outline-offset: 4px;
-  box-shadow: none;
-  border-radius: 2px;
-}
-
-:focus {
-  box-shadow:none;
-  outline: 1px solid blue;
-}
-
-a.text-link {
-  line-height: 24px;
-  color: navy;
-  background-color: none;
-  border-bottom: 2px solid navy;
-  z-index: 5;
-  transition: background-color 0.2s ease-in;
-}
-
-a.text-link:hover {
-  background: yellow;
-}
-
-a.text-link:focus, a.text-link:focus-visible {
-  background: yellow;
-  box-shadow: none;
-}
-
-button {
-  color: white;
-  background: navy;
-  letter-spacing: 0.05em;
-  font-size: 16px;
-  font-weight: 200;
-  line-height: 1;
-  padding: 16px 32px;
-  border: 2px solid navy;
-  border-radius: 12px;
-  height: 48px;
-}
-
-button:focus {
-  background: blue;
-  outline: none;
-}
-
- /* HEADER */
-h1.title {
-  color: #fff;
-  font-weight: normal;
-  font-size: 1.5rem;
-  letter-spacing: 0.05em;
-}
-/* navigation */
-
+/* Navigation */
 nav ul {
   display: flex;
   gap: 2rem;
 }
 
 nav ul li a {
-  color: #fff;
+  width: 100%;
+  color: var(--white);
+  font-size: 16px;
   line-height: 32px;
   letter-spacing: 0.1em;
   transition: color 0.3s ease-in-out;
 }
 
-nav ul li a:hover {
-  color: #fff
-}
-
 nav ul li a:after {
-  content: '';
+  content: "";
   display: block;
-  height: 1px;
+  height: 2px;
   width: 0;
-  background: white;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  background: lightcoral;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s, color 0.2s ease 0s;
 }
 
 nav ul li a:hover:after {
-  width: 100%; 
+  width: 100%;
 }
 
-
-nav ul li a:focus-visible, nav ul li a:focus {
-  outline: 1px solid blue ;
-  outline-offset: 4px;
+nav ul li a:focus {
   box-shadow: none;
-  background: red;
+  outline-color: #f8c4c4;
 }
 
+/* TEXT LINKS */
+a.text-link {
+  position: relative;
+  line-height: 24px;
+  color: #332781;
+  background-color: none;
+  z-index: 5;
+  transition: background-color 0.2s ease-in;
+}
+a.text-link::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4px;
+  bottom: 0px;
+  background-color: lightcoral;
+  z-index: -1;
+}
+a.text-link:hover::before {
+  height: 100%;
+  color: var(--black);
+  background-color: #f8c4c4;
+  transition: all 0.2s ease-in-out;
+}
+a.text-link:focus, a.text-link:focus-visible {
+  outline: 2px solid slateblue;
+  outline-offset: 4px;
+}
+
+button {
+  outline: none;
+  outline-offset: none;
+  color: var(--white);
+  background: #332781;
+  letter-spacing: 0.05em;
+  font-size: 16px;
+  line-height: 1;
+  padding: 16px 32px;
+  border: 2px solid #332781;
+  border-radius: 12px;
+  min-height: 48px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in;
+}
+button:hover {
+  background: #f8c4c4;
+  color: navy;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+}
+button:focus, button:focus-visible {
+  border-radius: 12px;
+  outline-offset: 0px;
+  background-color: #332781;
+  outline: 4px solid #f8c4c4;
+}
 
 small {
   font-size: 14px;
@@ -214,54 +231,48 @@ small {
 }
 
 /* TYPOGRAPHY */
-
-h1.title {
-  color: #fff;
-  font-size: 1.5rem;
-  letter-spacing: 0.05em;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-
 /* REGIONS */
 .page-wrapper {
- height: 100vh;
+  height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-  'header'
-  'main'
-  'footer';
+  grid-template-areas: "header" "main" "footer";
 }
-
 .page-wrapper > header {
   grid-area: header;
-  background-color: navy;
+  background-color: #332781;
   color: white;
-  padding: 16px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
-
+@media screen and (min-width: 600px) {
+  .page-wrapper > header {
+    padding: 2rem;
+  }
+}
 .page-wrapper > main {
   grid-area: main;
-  background-color:#F8F9F9;
+  background-color: #f8f9f9;
   overflow: auto;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr minmax(0, 960px) 1fr;
-  grid-template-areas:
-  '. content .'
+  grid-template-areas: ". content .";
 }
-
 .page-wrapper > footer {
   grid-area: footer;
-  background-color: navy;
-  color: white;
+  background-color: #332781;
+  padding: 16px;
 }
-
-.content-wrapper {
+.page-wrapper > footer .footer-text {
+  color: var(--bg-grey);
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  margin: 0 auto;
+  text-align: center;
+}
+.page-wrapper .content-wrapper {
   grid-area: content;
   padding: 64px 16px;
   display: flex;
@@ -269,4 +280,17 @@ h2 {
   gap: 96px;
 }
 
+@media screen and (min-width: 960px) {
+  .page-wrapper > header {
+    padding: 32px 64px;
+  }
+}
+@media screen and (min-width: 400px) {
+  h2 {
+    font-size: 32px;
+  }
+}
 /* CONTENT - SECTIONS */
+/* FORM */
+
+/*# sourceMappingURL=styles.css.map */

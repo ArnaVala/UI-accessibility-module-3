@@ -1,0 +1,341 @@
+:root {
+  --black: #222;
+  --white: linen;
+  --darkgrey: #555;
+  --bg-grey: #dcdcdc;
+  --primary: slateblue;
+  --bg-primary: powderblue;
+  --focus: royalblue;
+  --bg-hover: lightblue;
+}
+
+$white: var(--white);
+$black: var(--black);
+$title: $black;
+$text: var(--darkgrey);
+$textLight: $white;
+$primary: slateblue;
+$bg-dark: darken($primary, 25%);
+$bg-light: lighten($primary, 15%);
+$bg-lightest: lighten($primary, 25%);
+$accent: lightcoral;
+$bg-accent: lighten($accent, 15%);
+$bg-focus: $bg-dark;
+$border-focus: $primary;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: $white;
+}
+
+/* ------ HIDING ELEMENTS ON PAGE WHILE KEEPING ACCESSIBILITY FOR SCREEN READER ----- */
+
+/* The conventional way is to use CSS (display:none; and visibility:hidden;) or the HTML5 `hidden` attribute.
+These properties hide elements not only on the screen, but also for screen reader users.
+Thus, these elements will not be visible nor vocalized by speech synthesis.*/
+
+/* If wanting to display elements on the screen but make sure they are not vocalized.
+In this case, you can use an ARIA attribute (aria-hidden). */
+
+/* In some cases, it may be useful to hide elements on the screen,
+but make sure they are still vocalised by screen readers.
+For this, an accessible hiding CSS class can be used. */
+
+// Hidden Class
+.sr-only {
+  position: absolute;
+  white-space: nowrap; /* added line */
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+/* 
+Choosing Typography and Fonts for accessibility.
+- PT Sans & PT Mono are a fine choice for accessibility, they for example:
+- They have a good x-height
+- There are distinctions in the characters between the Letters I (uppercase I as in India) l (lowercase l as in lettuce) 1 (as in the number one) 
+- d/b or p/q combination which are not an exact mirror image of one another.
+- There are prominent descenders and ascenders in the characters 
+*/
+
+body {
+  font-family: 'PT Sans', sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  margin: 0;
+  color: $bg-dark;
+}
+
+/* 
+Font Sizes and paragraph lengths.
+- For readability, paragraphs the optimal lenght is between 50-65 characters,
+including spaces. 
+- Paragraphs should optimally have no more than approx 5 lines, or 2-3 sentences.
+- Font-size of text should be at least 16px, optimally 18px. 20px can even work in certain cases.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  color: $black;
+}
+
+h1.title {
+  color: $white;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  font-size: 4rem;
+  line-height: 64px;
+  color: $bg-dark;
+}
+
+h3 {
+  font-size: 40px;
+  line-height: 48px;
+}
+
+h4 {
+  font-size: 32px;
+}
+
+p,
+li {
+  font-weight: normal;
+  line-height: 1.6rem;
+  max-width: 60ch;
+  font-size: 18px;
+  color: $text;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+:focus,
+:focus-visible {
+  outline: 2px solid $primary;
+  outline-offset: 8px;
+  border-radius: 2px;
+}
+
+/* LINKS, BUTTONS etc. - elements requiring interaction
+/* 
+- For good accessibility, it is not enough to change color of text for example on nav links.
+- Underlined links on hover state gives a visual que to the user-interaction.
+- Focus state is important for tab navigation, and should always be available for navigation
+*/
+
+/* Navigation */
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li a {
+  width: 100%;
+  color: $textLight;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: $accent;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s, color 0.2s ease 0s;
+}
+
+nav ul li a:hover:after {
+  width: 100%;
+}
+
+nav ul li a:focus {
+  box-shadow: none;
+  outline-color: $bg-accent;
+}
+
+/* TEXT LINKS */
+a.text-link {
+  position: relative;
+  line-height: 24px;
+  color: $bg-dark;
+  background-color: none;
+  z-index: 5;
+  transition: background-color 0.2s ease-in;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 4px;
+    bottom: 0px;
+    background-color: $accent;
+    z-index: -1;
+  }
+
+  &:hover {
+    //color: $black;
+
+    &::before {
+      height: 100%;
+      //bottom: 0px;
+      color: $black;
+      background-color: $bg-accent;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid $border-focus;
+    outline-offset: 4px;
+  }
+}
+
+button {
+  outline: none;
+  outline-offset: none;
+  color: $white;
+  background: $bg-dark;
+  letter-spacing: 0.05em;
+  font-size: 16px;
+  line-height: 1;
+  padding: 16px 32px;
+  border: 2px solid $bg-dark;
+  border-radius: 12px;
+  min-height: 48px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    background: lighten($accent, 15%);
+    color: navy;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  &:focus,
+  &:focus-visible {
+    border-radius: 12px;
+    outline-offset: 0px;
+    background-color: $bg-focus;
+    outline: 4px solid $bg-accent;
+  }
+}
+
+small {
+  font-size: 14px;
+  padding-top: 4px;
+}
+
+/* TYPOGRAPHY */
+
+/* REGIONS */
+.page-wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+
+  & > header {
+    grid-area: header;
+    background-color: $bg-dark;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (min-width: 600px) {
+      padding: 2rem;
+    }
+  }
+
+  & > main {
+    grid-area: main;
+    background-color: #f8f9f9;
+    overflow: auto;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr minmax(0, 960px) 1fr;
+    grid-template-areas: '. content .';
+  }
+
+  & > footer {
+    grid-area: footer;
+    background-color: $bg-dark;
+    padding: 16px;
+
+    .footer-text {
+      color: var(--bg-grey);
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  .content-wrapper {
+    grid-area: content;
+    padding: 64px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .page-wrapper > header {
+    padding: 32px 64px;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  h2 {
+    font-size: 32px;
+  }
+}
+
+/* CONTENT - SECTIONS */
+
+/* FORM */
+
+
