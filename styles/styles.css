@@ -64,7 +64,6 @@ body {
   font-size: 1rem;
   margin: 0;
   color: var(--black);
-  background-color: var(--bg-grey);
 }
 
 /* 
@@ -278,6 +277,16 @@ section p + p {
 section p + h3 {
   margin-top: 3rem;
 }
+section ul {
+  padding-left: 2rem;
+}
+section ul li {
+  line-height: 2rem;
+  list-style-type: disc;
+}
+section ul + li {
+  margin-top: 1.5rem;
+}
 section .wrapper {
   width: 100%;
   max-width: 640px;
@@ -304,7 +313,7 @@ section#form .wrapper {
   margin: 0 auto;
 }
 section#form .wrapper form {
-  background-color: #fff;
+  background-color: var(--white);
   font-size: 1rem;
   border-radius: 12px;
   overflow: clip;
@@ -336,7 +345,7 @@ section#form .wrapper form fieldset .form-field textarea {
   padding: 1rem;
   border: 1px solid #000;
   border-radius: 4px;
-  background-color: #666666;
+  background-color: var(--white);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4) inset;
   transition: all 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -344,7 +353,6 @@ section#form .wrapper form fieldset .form-field input:hover,
 section#form .wrapper form fieldset .form-field select:hover,
 section#form .wrapper form fieldset .form-field textarea:hover {
   background-color: #fdf2f2;
-  border: 2px solid #000;
 }
 section#form .wrapper form fieldset .form-field input:focus, section#form .wrapper form fieldset .form-field input:focus-visible,
 section#form .wrapper form fieldset .form-field select:focus,
@@ -352,7 +360,6 @@ section#form .wrapper form fieldset .form-field select:focus-visible,
 section#form .wrapper form fieldset .form-field textarea:focus,
 section#form .wrapper form fieldset .form-field textarea:focus-visible {
   border: 2px solid #000;
-  box-shadow: 0px 0px 2px rgba(var(--black), 0.4) inset;
 }
 section#form .wrapper form fieldset .form-field textarea {
   width: 100%;
@@ -369,23 +376,20 @@ section#form .wrapper form .form-button button {
   line-height: 1;
   padding: 16px 32px;
   min-height: 48px;
-  color: var(--white);
+  color: var(--black);
   background: lightcoral;
   letter-spacing: 0.05em;
-  border: 2px solid var(--black);
-  border-radius: 12px;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
+  border: 2px solid lightcoral;
+  border-radius: 8px;
   transition: all 0.2s ease-in;
 }
 section#form .wrapper form .form-button button:hover {
-  background: #f8c4c4;
-  color: navy;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+  background: var(--white);
+  color: var(--black);
 }
 section#form .wrapper form .form-button button:focus, section#form .wrapper form .form-button button:focus-visible {
   border-radius: 12px;
   outline-offset: 0px;
-  background-color: var(--black);
   outline: 4px solid #fdf2f2;
 }
 section#form .wrapper form legend {
