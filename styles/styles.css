@@ -1,11 +1,11 @@
 :root {
   --black: #222;
-  --white: linen;
+  --white: #fff;
   --darkgrey: #555;
-  --bg-grey: #dcdcdc;
-  --primary: slateblue;
-  --bg-primary: powderblue;
-  --focus: royalblue;
+  --bg-grey: #f8f9f9;
+  --primary: #363eab;
+  --bg-primary: #363eab;
+  --focus: #363eab;
   --bg-hover: lightblue;
 }
 
@@ -63,7 +63,8 @@ body {
   height: 100%;
   font-size: 1rem;
   margin: 0;
-  color: #332781;
+  color: var(--black);
+  background-color: var(--bg-grey);
 }
 
 /* 
@@ -92,11 +93,11 @@ h1.title {
 h2 {
   font-size: 4rem;
   line-height: 64px;
-  color: #332781;
+  color: var(--black);
 }
 
 h3 {
-  font-size: 40px;
+  font-size: 2rem;
   line-height: 48px;
 }
 
@@ -113,6 +114,11 @@ li {
   color: var(--darkgrey);
 }
 
+small {
+  font-size: 14px;
+  padding-top: 4px;
+}
+
 a {
   text-decoration: none;
 }
@@ -123,11 +129,9 @@ li {
   list-style: none;
 }
 
-:focus,
 :focus-visible {
-  outline: 2px solid slateblue;
-  outline-offset: 8px;
-  border-radius: 2px;
+  outline: none;
+  border: 1px solid lightcoral;
 }
 
 /* LINKS, BUTTONS etc. - elements requiring interaction
@@ -139,18 +143,19 @@ li {
 /* Navigation */
 nav ul {
   display: flex;
-  gap: 2rem;
 }
-
 nav ul li a {
-  width: 100%;
+  display: inline-block;
   color: var(--white);
+  padding: 0 1rem;
   font-size: 16px;
   line-height: 32px;
   letter-spacing: 0.1em;
   transition: color 0.3s ease-in-out;
 }
-
+nav ul li a:hover:after {
+  width: 100%;
+}
 nav ul li a:after {
   content: "";
   display: block;
@@ -159,26 +164,24 @@ nav ul li a:after {
   background: lightcoral;
   transition: width 0.3s ease 0s, left 0.3s ease 0s, color 0.2s ease 0s;
 }
-
-nav ul li a:hover:after {
-  width: 100%;
-}
-
 nav ul li a:focus {
-  box-shadow: none;
-  outline-color: #f8c4c4;
+  color: #404040;
+  transition: color 0.2s ease 0s;
+}
+nav ul li a:hover:focus:after {
+  background: #404040;
 }
 
 /* TEXT LINKS */
 a.text-link {
   position: relative;
   line-height: 24px;
-  color: #332781;
+  color: var(--black);
   background-color: none;
   z-index: 5;
   transition: background-color 0.2s ease-in;
 }
-a.text-link::before {
+a.text-link:before {
   position: absolute;
   content: "";
   width: 100%;
@@ -190,44 +193,12 @@ a.text-link::before {
 a.text-link:hover::before {
   height: 100%;
   color: var(--black);
-  background-color: #f8c4c4;
+  background-color: #fdf2f2;
   transition: all 0.2s ease-in-out;
 }
 a.text-link:focus, a.text-link:focus-visible {
-  outline: 2px solid slateblue;
+  outline: 2px solid #000;
   outline-offset: 4px;
-}
-
-button {
-  outline: none;
-  outline-offset: none;
-  color: var(--white);
-  background: #332781;
-  letter-spacing: 0.05em;
-  font-size: 16px;
-  line-height: 1;
-  padding: 16px 32px;
-  border: 2px solid #332781;
-  border-radius: 12px;
-  min-height: 48px;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
-  transition: all 0.2s ease-in;
-}
-button:hover {
-  background: #f8c4c4;
-  color: navy;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
-}
-button:focus, button:focus-visible {
-  border-radius: 12px;
-  outline-offset: 0px;
-  background-color: #332781;
-  outline: 4px solid #f8c4c4;
-}
-
-small {
-  font-size: 14px;
-  padding-top: 4px;
 }
 
 /* TYPOGRAPHY */
@@ -240,11 +211,16 @@ small {
 }
 .page-wrapper > header {
   grid-area: header;
-  background-color: #332781;
+  background-color: var(--black);
   color: white;
   padding: 1rem;
   display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
   justify-content: space-between;
+}
+.page-wrapper > header nav {
+  margin-left: auto;
 }
 @media screen and (min-width: 600px) {
   .page-wrapper > header {
@@ -253,7 +229,7 @@ small {
 }
 .page-wrapper > main {
   grid-area: main;
-  background-color: #f8f9f9;
+  background-color: var(--white);
   overflow: auto;
   display: grid;
   grid-template-rows: 1fr;
@@ -262,7 +238,7 @@ small {
 }
 .page-wrapper > footer {
   grid-area: footer;
-  background-color: #332781;
+  background-color: var(--black);
   padding: 16px;
 }
 .page-wrapper > footer .footer-text {
@@ -280,17 +256,148 @@ small {
   gap: 96px;
 }
 
-@media screen and (min-width: 960px) {
-  .page-wrapper > header {
-    padding: 32px 64px;
-  }
+section {
+  width: 100%;
 }
-@media screen and (min-width: 400px) {
-  h2 {
+section h2 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 2.5rem;
+}
+section h3 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  padding-bottom: 24px;
+}
+section p {
+  line-height: 2rem;
+}
+section p + p {
+  margin-top: 1.5rem;
+}
+section p + h3 {
+  margin-top: 3rem;
+}
+section .wrapper {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  section h2 {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+  section h3 {
     font-size: 32px;
   }
 }
+
 /* CONTENT - SECTIONS */
 /* FORM */
+section#form {
+  width: 100%;
+}
+section#form .wrapper {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+section#form .wrapper form {
+  background-color: #fff;
+  font-size: 1rem;
+  border-radius: 12px;
+  overflow: clip;
+  box-shadow: 0px 16px 40px -20px rgba(112, 144, 176, 0.2);
+  padding-bottom: 2rem;
+}
+section#form .wrapper form fieldset {
+  border: none;
+}
+section#form .wrapper form fieldset .form-field {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+section#form .wrapper form fieldset .form-field label {
+  color: black;
+  padding-bottom: 8px;
+  font-size: 16px;
+}
+section#form .wrapper form fieldset .form-field small {
+  color: var(--darkgrey);
+  padding-top: 8px;
+  font-size: 14px;
+}
+section#form .wrapper form fieldset .form-field input,
+section#form .wrapper form fieldset .form-field select,
+section#form .wrapper form fieldset .form-field textarea {
+  font-size: 16px;
+  padding: 1rem;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background-color: #666666;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4) inset;
+  transition: all 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+section#form .wrapper form fieldset .form-field input:hover,
+section#form .wrapper form fieldset .form-field select:hover,
+section#form .wrapper form fieldset .form-field textarea:hover {
+  background-color: #fdf2f2;
+  border: 2px solid #000;
+}
+section#form .wrapper form fieldset .form-field input:focus, section#form .wrapper form fieldset .form-field input:focus-visible,
+section#form .wrapper form fieldset .form-field select:focus,
+section#form .wrapper form fieldset .form-field select:focus-visible,
+section#form .wrapper form fieldset .form-field textarea:focus,
+section#form .wrapper form fieldset .form-field textarea:focus-visible {
+  border: 2px solid #000;
+  box-shadow: 0px 0px 2px rgba(var(--black), 0.4) inset;
+}
+section#form .wrapper form fieldset .form-field textarea {
+  width: 100%;
+  min-width: 100%;
+  resize: none;
+  overflow: scroll;
+}
+section#form .wrapper form .form-button {
+  padding: 1rem 2rem;
+  width: 100%;
+}
+section#form .wrapper form .form-button button {
+  font-size: 16px;
+  line-height: 1;
+  padding: 16px 32px;
+  min-height: 48px;
+  color: var(--white);
+  background: lightcoral;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--black);
+  border-radius: 12px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in;
+}
+section#form .wrapper form .form-button button:hover {
+  background: #f8c4c4;
+  color: navy;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+}
+section#form .wrapper form .form-button button:focus, section#form .wrapper form .form-button button:focus-visible {
+  border-radius: 12px;
+  outline-offset: 0px;
+  background-color: var(--black);
+  outline: 4px solid #fdf2f2;
+}
+section#form .wrapper form legend {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 18px;
+  width: 100%;
+  background-color: var(--black);
+  color: var(--white);
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0px 0px 8px rgba(var(--black), 0.4);
+}
 
 /*# sourceMappingURL=styles.css.map */

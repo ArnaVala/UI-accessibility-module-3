@@ -1,26 +1,27 @@
 :root {
   --black: #222;
-  --white: linen;
+  --white: #fff;
   --darkgrey: #555;
-  --bg-grey: #dcdcdc;
-  --primary: slateblue;
-  --bg-primary: powderblue;
-  --focus: royalblue;
+  --bg-grey: #f8f9f9;
+  --primary: #363eab;
+  --bg-primary: #363eab;
+  --focus: #363eab;
   --bg-hover: lightblue;
 }
 
 $white: var(--white);
 $black: var(--black);
+$bg-grey: var(--bg-grey);
 $title: $black;
 $text: var(--darkgrey);
 $textLight: $white;
-$primary: slateblue;
-$bg-dark: darken($primary, 25%);
+$primary: #000;
+$bg-dark: $black;
 $bg-light: lighten($primary, 15%);
 $bg-lightest: lighten($primary, 25%);
 $accent: lightcoral;
-$bg-accent: lighten($accent, 15%);
-$bg-focus: $bg-dark;
+$bg-accent: lighten($accent, 25%);
+$bg-focus: $black;
 $border-focus: $primary;
 
 * {
@@ -82,7 +83,8 @@ body {
   height: 100%;
   font-size: 1rem;
   margin: 0;
-  color: $bg-dark;
+  color: $black;
+  //background-color: $bg-grey;
 }
 
 /* 
@@ -116,7 +118,7 @@ h2 {
 }
 
 h3 {
-  font-size: 40px;
+  font-size: 2rem;
   line-height: 48px;
 }
 
@@ -133,6 +135,11 @@ li {
   color: $text;
 }
 
+small {
+  font-size: 14px;
+  padding-top: 4px;
+}
+
 a {
   text-decoration: none;
 }
@@ -143,11 +150,9 @@ li {
   list-style: none;
 }
 
-:focus,
 :focus-visible {
-  outline: 2px solid $primary;
-  outline-offset: 8px;
-  border-radius: 2px;
+  outline: none;
+  border: 1px solid $accent;
 }
 
 /* LINKS, BUTTONS etc. - elements requiring interaction
@@ -161,34 +166,38 @@ li {
 
 nav ul {
   display: flex;
-  gap: 2rem;
-}
 
-nav ul li a {
-  width: 100%;
-  color: $textLight;
-  font-size: 16px;
-  line-height: 32px;
-  letter-spacing: 0.1em;
-  transition: color 0.3s ease-in-out;
-}
+  li a {
+    display: inline-block;
+    color: $textLight;
+    padding: 0 1rem;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease-in-out;
 
-nav ul li a:after {
-  content: '';
-  display: block;
-  height: 2px;
-  width: 0;
-  background: $accent;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s, color 0.2s ease 0s;
-}
+    &:hover:after {
+      width: 100%;
+    }
 
-nav ul li a:hover:after {
-  width: 100%;
-}
+    &:after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: $accent;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s, color 0.2s ease 0s;
+    }
 
-nav ul li a:focus {
-  box-shadow: none;
-  outline-color: $bg-accent;
+    &:focus {
+      color: $bg-lightest;
+      transition: color 0.2s ease 0s;
+    }
+
+    &:hover:focus:after {
+      background: $bg-lightest;
+    }
+  }
 }
 
 /* TEXT LINKS */
@@ -200,7 +209,7 @@ a.text-link {
   z-index: 5;
   transition: background-color 0.2s ease-in;
 
-  &::before {
+  &:before {
     position: absolute;
     content: '';
     width: 100%;
@@ -229,41 +238,6 @@ a.text-link {
   }
 }
 
-button {
-  outline: none;
-  outline-offset: none;
-  color: $white;
-  background: $bg-dark;
-  letter-spacing: 0.05em;
-  font-size: 16px;
-  line-height: 1;
-  padding: 16px 32px;
-  border: 2px solid $bg-dark;
-  border-radius: 12px;
-  min-height: 48px;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
-  transition: all 0.2s ease-in;
-
-  &:hover {
-    background: lighten($accent, 15%);
-    color: navy;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
-  }
-
-  &:focus,
-  &:focus-visible {
-    border-radius: 12px;
-    outline-offset: 0px;
-    background-color: $bg-focus;
-    outline: 4px solid $bg-accent;
-  }
-}
-
-small {
-  font-size: 14px;
-  padding-top: 4px;
-}
-
 /* TYPOGRAPHY */
 
 /* REGIONS */
@@ -282,7 +256,13 @@ small {
     color: white;
     padding: 1rem;
     display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
     justify-content: space-between;
+
+    nav {
+      margin-left: auto;
+    }
 
     @media screen and (min-width: 600px) {
       padding: 2rem;
@@ -291,7 +271,7 @@ small {
 
   & > main {
     grid-area: main;
-    background-color: #f8f9f9;
+    background-color: $white;
     overflow: auto;
     display: grid;
     grid-template-rows: 1fr;
@@ -322,15 +302,48 @@ small {
   }
 }
 
-@media screen and (min-width: 960px) {
-  .page-wrapper > header {
-    padding: 32px 64px;
-  }
-}
+section {
+  width: 100%;
 
-@media screen and (min-width: 400px) {
   h2 {
-    font-size: 32px;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    padding-bottom: 24px;
+  }
+
+  p {
+    line-height: 2rem;
+
+    + p {
+      margin-top: 1.5rem;
+    }
+
+    + h3 {
+      margin-top: 3rem;
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    h2 {
+      font-size: 48px;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: 32px;
+    }
   }
 }
 
@@ -338,4 +351,119 @@ small {
 
 /* FORM */
 
+section#form {
+  width: 100%;
 
+  .wrapper {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+
+    form {
+      background-color: #fff;
+      font-size: 1rem;
+      border-radius: 12px;
+      overflow: clip;
+      box-shadow: 0px 16px 40px -20px rgba(#7090b0, 0.2);
+      padding-bottom: 2rem;
+
+      fieldset {
+        border: none;
+
+        .form-field {
+          padding: 1rem 2rem;
+          display: flex;
+          flex-direction: column;
+
+          label {
+            color: darken($primary, 10%);
+            padding-bottom: 8px;
+            font-size: 16px;
+          }
+
+          small {
+            color: $text;
+            padding-top: 8px;
+            font-size: 14px;
+          }
+
+          input,
+          select,
+          textarea {
+            font-size: 16px;
+            padding: 1rem;
+            border: 1px solid $primary;
+            border-radius: 4px;
+            background-color: $white;
+            box-shadow: 0px 0px 2px rgba($primary, 0.4) inset;
+            transition: all 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            &:hover {
+              background-color: $bg-accent;
+              border: 2px solid $primary;
+            }
+
+            &:focus,
+            &:focus-visible {
+              border: 2px solid $primary;
+              box-shadow: 0px 0px 2px rgba($bg-dark, 0.4) inset;
+              //box-shadow: 0px 2px 0px rgba($bg-dark, 1);
+            }
+          }
+
+          textarea {
+            width: 100%;
+            min-width: 100%;
+            resize: none;
+            overflow: scroll;
+          }
+        }
+      }
+
+      .form-button {
+        padding: 1rem 2rem;
+        width: 100%;
+
+        button {
+          font-size: 16px;
+          line-height: 1;
+          padding: 16px 32px;
+          min-height: 48px;
+          color: $white;
+          background: $accent;
+          letter-spacing: 0.05em;
+          border: 2px solid $bg-dark;
+          border-radius: 16px;
+          box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
+          transition: all 0.2s ease-in;
+
+          &:hover {
+            background: lighten($accent, 15%);
+            color: navy;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+          }
+
+          &:focus,
+          &:focus-visible {
+            border-radius: 12px;
+            outline-offset: 0px;
+            background-color: $bg-focus;
+            outline: 4px solid $bg-accent;
+          }
+        }
+      }
+
+      legend {
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 18px;
+        width: 100%;
+        background-color: $bg-dark;
+        color: $white;
+        padding: 1rem 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0px 0px 8px rgba($bg-dark, 0.4);
+      }
+    }
+  }
+}

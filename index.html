@@ -56,6 +56,7 @@
         <!-- INTRO HEADER -->
         <section aria-labelledby="intro-heading"
                  id='intro'>
+
           <div class='wrapper'>
             <h2 class='intro-heading'>UI Accessibility</h2>
             <ul>
@@ -79,6 +80,40 @@
                  id='report'>
           <div class='wrapper'>
             <h2 id='report-heading'>Inclusive vs Universal Design</h2>
+            <h3>Accessibility and UX.</h3>
+            <p>
+              Accessibility is the goal to ensure that products support each individual user's need and preferences. ‌In
+              order for designs to result in a pleasant user experience, UX designers need to be understanding of their
+              target audience's specific wants and need as a demographic, not as individuals.
+            </p>
+            <p>
+              While a good UX design aims to please as many users as possible, meeting the needs and wants of individual
+              users is simply not feasible. The goal is to find the delicate balance between universal and inclusive
+              designs—designs that cater to all and designs that cater to few.
+            </p>
+            <h3>Universal design.</h3>
+            <p>
+              Universal design is for everyone. Universal design is the design of products and environments to be usable
+              by all people, to the greatest extent possible, without the need for adaptation or specialized design.
+            </p>
+            <p>
+              When it comes to universal design, the keyword is accessibility. Accessible design focuses on ensuring no
+              user faces any unnecessary barrier when using the product. It accommodates people of varying cognitive,
+              physical, and technical abilities.</p>
+
+            <h3>Inclusive design.</h3>
+            <p>
+              Inclusive design focuses and more people who might be excluded by the status quo. Inclusive design
+              considers
+              the full
+              range of human diversity with respect to ability, language, culture, gender, age and other forms of human
+              difference -
+              which might influence or prevent people from using a product comfortably in the status quo.
+            </p>
+            <p>
+              For inclusive design, we need to look and consider a multiple and diverse range of perspectives throughout
+              the whole design process, whether it is having a diversity in terms of ethnicity, age, gender on a design
+              team or in user testing.</p>
           </div>
         </section>
 
@@ -90,7 +125,7 @@
             <form>
               <fieldset>
                 <legend>Contact info</legend>
-                <div>
+                <div class='form-field'>
                   <!-- <label> element's FOR attribute linked to the associating <input> element's ID attribute. -->
                   <label for='name'>Name <span>(required)</span></label>
                   <input id='name'
@@ -99,7 +134,7 @@
                          required
                          aria-required='true'>
                 </div>
-                <div>
+                <div class='form-field'>
                   <label for='phone'>Phone<span>(required)</span></label>
                   <input id='phone'
                          type='tel'
@@ -110,7 +145,7 @@
                          aria-required='true'>
                   <small id='tel-format'>Format: 123-4567</small>
                 </div>
-                <div>
+                <div class='form-field'>
                   <label for='email'>Email <span>(required)</span></label>
                   <input id='email'
                          type='email'
@@ -118,29 +153,22 @@
                          required
                          aria-required='true'>
                 </div>
-                <div>
+                <div class='form-field'>
                   <label for='message'>Message <span>(optional)</span></label>
                   <textarea name="message"
                             id="message"
-                            rows="5"
+                            rows="6"
                             aria-required="false"></textarea>
                 </div>
-
               </fieldset>
-
-              <fieldset>
-                Dropdown select
-              </fieldset>
-              <fieldset>
-                Checkbox options
-              </fieldset>
-              <fieldset>
-                Radio buttons
-              </fieldset>
-              <button type='submit'>Send info</button>
+              <div class='form-button'>
+                <button type='submit'>Send info</button>
+              </div>
             </form>
           </div>
         </section>
+
+
       </div>
     </main>
     <!-- FOOTER -->
@@ -148,7 +176,7 @@
       <p class='footer-text'>Arna Vala - UI Design Accessibility</p>
     </footer>
   </div>
-  <script src="/main.js"></script>
+  <script src="/app.js"></script>
 </body>
 
 </html>
