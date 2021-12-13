@@ -6,6 +6,8 @@
 2. Figma Prototype with a form, accessibility support, focused navigation, contrast and text size requirements.
 3. Report: Inclusive vs Universal Design
 
+[LIVE SITE](https://av-ui-accessibilility.netlify.app/)
+
 ### HTML Markup
 
 A basic site with semantic HTML Markup, Form and ARIA tags for accessibility.
@@ -20,8 +22,12 @@ A basic site with semantic HTML Markup, Form and ARIA tags for accessibility.
 ### Figma Prototype
 
 <br>
-Link to design file: [Figma design](https://https://www.figma.com/file/yA6Nu1zOvlB4r043IVey71/UI-Design-System?node-id=411%3A5597)
-Link to prototype: [Figma prototype](https://www.figma.com/proto/yA6Nu1zOvlB4r043IVey71/UI-Design-System?page-id=411%3A5597&node-id=413%3A440&viewport=384%2C48%2C0.25&scaling=min-zoom&starting-point-node-id=413%3A440)
+Link to design file: [FIGMA DESIGN](https://www.figma.com/file/yA6Nu1zOvlB4r043IVey71/UI-Design-System?node-id=411%3A5597)
+  <br>
+Link to prototype:
+  
+  [FIGMA PROTOTYPE](https://www.figma.com/proto/yA6Nu1zOvlB4r043IVey71/UI-Design-System?page-id=411%3A5597&node-id=413%3A440&viewport=384%2C48%2C0.25&scaling=min-zoom&starting-point-node-id=413%3A440)
+  
 <br>
 A Form prototype in Figma.
 - Functioning Figma prototype supporting focus navigation and hover states.
