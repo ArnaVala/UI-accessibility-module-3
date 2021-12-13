@@ -2,7 +2,7 @@
 
 ## Deliverables:
 
-1. A HTML page structured to the Accessibility guidelines, Semantic markup and ARIA tags, fx. defined regions, landmarks, aria-name etc. (NB! use no design efforts on this document, this is about accessible structure of HTML code.)
+1. A HTML page structured to the Accessibility guidelines, Semantic markup and ARIA tags, fx. defined regions, landmarks, aria-name etc.
 2. Figma Prototype with a form, accessibility support, focused navigation, contrast and text size requirements.
 3. Report: Inclusive vs Universal Design
 
@@ -20,12 +20,14 @@ A basic site with semantic HTML Markup, Form and ARIA tags for accessibility.
 ### Figma Prototype
 
 <br>
-Link to design file: [Figma design](https://)
-Link to prototype: [Figma prototype](https://)
+Link to design file: [Figma design](https://https://www.figma.com/file/yA6Nu1zOvlB4r043IVey71/UI-Design-System?node-id=411%3A5597)
+Link to prototype: [Figma prototype](https://www.figma.com/proto/yA6Nu1zOvlB4r043IVey71/UI-Design-System?page-id=411%3A5597&node-id=413%3A440&viewport=384%2C48%2C0.25&scaling=min-zoom&starting-point-node-id=413%3A440)
 <br>
 A Form prototype in Figma.
 - Functioning Figma prototype supporting focus navigation and hover states.
 - I used A11y - Color Contrast Checker tool in Figma.
+- I used A117 - Focused Order. NB!!! The plugin isn't working as expected, in the prototype the order goes backwards.
+I have tried to fix this, but it seems to be a bug in the plugin at the moment.
 - Labels for input fields.
 - Readable font-sizes and ample spacing.
 <br>
