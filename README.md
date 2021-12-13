@@ -8,6 +8,11 @@
 
 [LIVE SITE](https://av-ui-accessibilility.netlify.app/)
 
+[FIGMA PROTOTYPE](https://www.figma.com/proto/yA6Nu1zOvlB4r043IVey71/UI-Design-System?page-id=411%3A5597&node-id=413%3A440&viewport=384%2C48%2C0.25&scaling=min-zoom&starting-point-node-id=413%3A440)
+
+[FIGMA FILE](https://www.figma.com/file/yA6Nu1zOvlB4r043IVey71/UI-Design-System?node-id=411%3A5597)
+
+
 ### HTML Markup
 
 A basic site with semantic HTML Markup, Form and ARIA tags for accessibility.
@@ -21,15 +26,6 @@ A basic site with semantic HTML Markup, Form and ARIA tags for accessibility.
 
 ### Figma Prototype
 
-<br>
-Link to design file: 
-  [FIGMA DESIGN](https://www.figma.com/file/yA6Nu1zOvlB4r043IVey71/UI-Design-System?node-id=411%3A5597)
-  <br>
-Link to prototype:
-  <br>
-  [FIGMA PROTOTYPE](https://www.figma.com/proto/yA6Nu1zOvlB4r043IVey71/UI-Design-System?page-id=411%3A5597&node-id=413%3A440&viewport=384%2C48%2C0.25&scaling=min-zoom&starting-point-node-id=413%3A440)
-  
-<br>
 A Form prototype in Figma.
 - Functioning Figma prototype supporting focus navigation and hover states.
 - I used A11y - Color Contrast Checker tool in Figma.
@@ -40,9 +36,9 @@ I have tried to fix this, but it seems to be a bug in the plugin at the moment.
 <br>
 <br>
 
-## Report: Inclusive vs Universal Design
+### Report: Inclusive vs Universal Design
 
-### Accessibility and UX.
+## Accessibility and UX.
 
 Accessibility is the goal to ensure that products support each individual user's need and preferences. ‌In order for designs to result in a pleasant user experience, UX designers need to be understanding of their target audience's specific wants and need as a demographic, not as individuals.
 
